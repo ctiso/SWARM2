@@ -29,11 +29,14 @@ namespace SWARM.Server
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseOracle(
-                    Configuration.GetConnectionString("SwarmOracleConnection")));
+                    Configuration.GetConnectionString("SWARMConnection")));
 
             services.AddDbContext<SWARMOracleContext>(options =>
                 options.UseOracle(
-                    Configuration.GetConnectionString("SwarmOracleConnection")));
+                    Configuration.GetConnectionString("SWARMConnection")));
+            services.AddControllers().AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
