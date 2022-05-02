@@ -110,7 +110,7 @@ namespace SWARM.Server.Controllers.Crse
                     return StatusCode(StatusCodes.Status500InternalServerError, "Record Exists");
 
                 }
-
+                //Course Done
                 _Crse.Cost = _Course.Cost;
                 _Crse.Description = _Course.Description;
                 _Crse.Prerequisite = _Course.Prerequisite;
