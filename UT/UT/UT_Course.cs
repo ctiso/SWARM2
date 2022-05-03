@@ -36,7 +36,7 @@ namespace SWARM.UT.UT
         [ClassInitialize()]
         public static void InitTestSuite(TestContext testContext)
         {
-            _optionsBuilder.UseOracle(Configuration.GetConnectionString("SwarmOracleConnection"));
+            _optionsBuilder.UseOracle(Configuration.GetConnectionString("SWARMConnection"));
             _context = new SWARMOracleContext(_optionsBuilder.Options);
         }
 

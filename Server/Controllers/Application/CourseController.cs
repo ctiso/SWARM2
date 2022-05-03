@@ -108,9 +108,8 @@ namespace SWARM.Server.Controllers.Crse
                 if (_Crse != null)
                 {
                     return StatusCode(StatusCodes.Status500InternalServerError, "Record Exists");
-
                 }
-                //Course Done
+                _Crse = new Course();
                 _Crse.Cost = _Course.Cost;
                 _Crse.Description = _Course.Description;
                 _Crse.Prerequisite = _Course.Prerequisite;
@@ -130,65 +129,5 @@ namespace SWARM.Server.Controllers.Crse
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
-
-
-        //    [HttpPost]
-        //    [Route("GetCourses")]
-        //    public async Task<DataEnvelope<CourseDTO>> GetCoursesPost([FromBody] DataSourceRequest gridRequest)
-        //    {
-        //        DataEnvelope<CourseDTO> dataToReturn = null;
-        //        IQueryable<CourseDTO> queriableStates = _context.Courses
-        //                .Select(sp => new CourseDTO
-        //                {
-        //                    Cost = sp.Cost,
-        //                    CourseNo = sp.CourseNo,
-        //                    CreatedBy = sp.CreatedBy,
-        //                    CreatedDate = sp.CreatedDate,
-        //                    Description = sp.Description,
-        //                    ModifiedBy = sp.ModifiedBy,
-        //                    ModifiedDate = sp.ModifiedDate,
-        //                    Prerequisite = sp.Prerequisite,
-        //                    PrerequisiteSchoolId = sp.PrerequisiteSchoolId,
-        //                    SchoolId = sp.SchoolId
-        //                });
-
-        //        // use the Telerik DataSource Extensions to perform the query on the data
-        //        // the Telerik extension methods can also work on "regular" collections like List<T> and IQueriable<T>
-        //        try
-        //        {
-
-        //            DataSourceResult processedData = await queriableStates.ToDataSourceResultAsync(gridRequest);
-
-        //            if (gridRequest.Groups.Count > 0)
-        //            {
-        //                // If there is grouping, use the field for grouped data
-        //                // The app must be able to serialize and deserialize it
-        //                // Example helper methods for this are available in this project
-        //                // See the GroupDataHelper.DeserializeGroups and JsonExtensions.Deserialize methods
-        //                dataToReturn = new DataEnvelope<CourseDTO>
-        //                {
-        //                    GroupedData = processedData.Data.Cast<AggregateFunctionsGroup>().ToList(),
-        //                    TotalItemCount = processedData.Total
-        //                };
-        //            }
-        //            else
-        //            {
-        //                // When there is no grouping, the simplistic approach of 
-        //                // just serializing and deserializing the flat data is enough
-        //                dataToReturn = new DataEnvelope<CourseDTO>
-        //                {
-        //                    CurrentPageData = processedData.Data.Cast<CourseDTO>().ToList(),
-        //                    TotalItemCount = processedData.Total
-        //                };
-        //            }
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            //fixme add decent exception handling
-        //        }
-        //        return dataToReturn;
-        //    }
-
-        //}
     } 
 }
